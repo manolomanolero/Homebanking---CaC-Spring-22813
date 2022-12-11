@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Data
 @Entity
@@ -16,11 +16,16 @@ import java.sql.Date;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "transaction_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "account_id", referencedColumnName = "account_id")
-    private Account account;
+    @JoinColumn(name = "account_sender_id")
+    private Account accountSender;
+
+    @ManyToOne
+    @JoinColumn(name = "account_receiver_id")
+    private Account accountReceiver;
 
     @Column(name = "transaction_type", nullable = false, length = 50)
     @Enumerated(EnumType.STRING)
@@ -29,7 +34,8 @@ public class Transaction {
     @Column(nullable = false)
     private Double amount;
 
-    @Column(name = "transaction_ date")
+    @Column(name = "transaction_date", nullable = false)
+    @Temporal(TemporalType.DATE)
     private Date transactionDate;
 
 }
