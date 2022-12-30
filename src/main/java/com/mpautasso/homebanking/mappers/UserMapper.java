@@ -17,6 +17,10 @@ public class UserMapper {
         return modelMapper.map(user, UserResponseDto.class);
     }
 
+    public User responseDtoToEntity(UserResponseDto userResponseDto) {
+        return modelMapper.map(userResponseDto, User.class);
+    }
+
     public User requestDtoToEntity(UserRequestDto userDto) {
         return modelMapper.map(userDto, User.class);
     }
