@@ -15,8 +15,8 @@ public interface AccountService {
     AccountDetailsDto findByNumber(Integer number);
 
     AccountDetailsDto create(AccountRequestDto accountRequestDto);
-    AccountDetailsDto reduceBalance(AccountRequestDto accountRequestDto, Double amount);
-    AccountDetailsDto incrementBalance(AccountRequestDto accountRequestDto, Double amount);
+    AccountDetailsDto reduceBalance(int accountNumber, Double amount);
+    AccountDetailsDto incrementBalance(int accountNumber, Double amount);
 
     boolean delete(Long id);
 
