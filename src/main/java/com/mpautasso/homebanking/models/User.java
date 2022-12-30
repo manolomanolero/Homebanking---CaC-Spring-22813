@@ -24,8 +24,4 @@ public class User {
     @Column(nullable = false)
     private String password;
     private Integer age;
-
-    //TODO accounts relations, one user can have many accounts
-    /*@OneToMany
-    @JoinColumn()*/
-}
+   }
